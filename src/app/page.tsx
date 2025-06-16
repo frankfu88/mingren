@@ -3,15 +3,57 @@
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
+import { useState } from "react";
 import {
   FaPhone,
   FaMapMarkerAlt,
-  FaPaw
+  FaPaw,
+  FaChevronDown,
+  FaChevronUp
 } from "react-icons/fa";
+
+const servicesDetailed = [
+  {
+    label: "內科診療",
+    treatments: [
+      "一般內科診療（腸胃、皮膚、泌尿、呼吸道等常見疾病）",
+      "心臟內科診療（配合高階超音波與血壓監控）",
+      "腫瘤內科門診（腫瘤初步評估與追蹤）",
+      "老年動物慢性病照護（腎臟、心臟、內分泌相關）",
+      "雷射治療（B-CURE動物專用雷射，適用於疼痛與術後恢復）",
+      "呼吸道霧化治療（SUMO超音波霧化器）"
+    ]
+  },
+  {
+    label: "外科手術",
+    treatments: [
+      "一般外科手術（如腫瘤切除、膿瘍清創、異物取出）",
+      "母浪貓側腹微創絕育手術",
+      "全身麻醉手術（配備氣體麻醉機與動物專用生理監控）",
+      "牙科手術（拔牙、口腔清創）",
+      "腫瘤切除手術（搭配術前影像與檢驗）",
+      "術後照護與加護病房（ICU氧氣保溫系統）"
+    ]
+  },
+  {
+    label: "健康檢查與疫苗接種",
+    treatments: [
+      "全年齡健康檢查（建議每年定期檢查）",
+      "完整血液、尿液與內分泌檢驗（IDEXX系統）",
+      "心肺影像評估（X光、超音波、Vcheck免疫分析）",
+      "疫苗接種（幼犬幼貓、成犬成貓定期預防針）",
+      "術前健康風險評估（麻醉前生理檢查）"
+    ]
+  }
+];
 
 export default function Home() {
   const router = useRouter(); // ✅ 用於導航到獨立頁面
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const toggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+  
   return (
     <main className="bg-[#E6D6CC] text-gray-900">
       {/* 🔹 關於我們 */}
@@ -21,18 +63,17 @@ export default function Home() {
         </h2>
         <div className="bg-white shadow-xl rounded-xl p-8 mt-6">
           <p className="text-lg text-gray-700 leading-relaxed">
-            文志動物醫院成立於2000年，座落於雲林斗六市，是一所深耕在地、用心守護毛孩健康的專業動物醫療機構。我們相信，每一隻寵物不只是動物，更是家庭的一份子，值得被細心對待與溫柔照護。
+            鈞懋動物醫院由祝偉鈞院長創立，院長畢業於國立嘉義大學獸醫學院，擁有豐富的小動物臨床經驗，曾任台北市和欣動物醫院、劍橋動物醫院、台中東南動物醫院內外科主治醫師，以及馬汀體系威爾斯分院院長，長年專注於犬貓內外科、心臟內科、牙科、腫瘤科、預防醫學與微創手術等多項領域。
             <br /><br />
-            本院致力於打造一個以「同理與安心」為核心理念的就診空間，從診療動線到環境設計、從掛號流程到診療溝通，都以減少寵物與飼主的焦慮為目標。我們深知，只有放下戒心的毛孩，才能接受最有效的治療。
+            鈞懋動物醫院位於台中，致力於打造一個結合專業與溫度的獸醫空間。我們相信，每一隻毛孩都是家庭的重要成員，值得被理解、尊重與用心對待。
             <br /><br />
-            我們的獸醫團隊由多位經驗豐富、專業且充滿愛心的獸醫師組成，擅長犬貓內外科、皮膚科、疫苗接種、晶片植入、超音波檢查、外科手術與緊急救護等服務，亦提供中西整合療法、腫瘤照護與老年寵物管理。院長吳定峰醫師對皮膚病特別有深入研究，並致力於為台灣濕熱氣候下的毛孩找出最合適的照護方法。
+            從院內環境到就診流程，我們重視每個細節，只為了讓毛孩與飼主都能安心、舒適地看診。我們的團隊擁有臨床經驗與醫療熱忱，提供包括健康檢查、疫苗施打、皮膚病診療、X光與超音波影像檢查、外科手術、慢性病照護等全面服務。
             <br /><br />
-            我們相信，醫療不只是技術的堆疊，而是關於信任、理解與陪伴。我們珍惜每一次與毛孩和飼主互動的機會，耐心聆聽、細心解說，讓每一位來訪的家庭都能感受到被理解與被尊重的溫度。
+            我們深知，真正的醫療不僅來自專業技術，更來自於與飼主的信任連結與充分溝通。鈞懋重視每一段互動，耐心傾聽、清楚說明，讓每一位飼主都能在診療過程中感受到被理解與被支持。
             <br /><br />
-            在文志動物醫院，我們與您一同守護的不只是健康，更是一段毛孩生命中安心、溫暖且珍貴的旅程。
+            在鈞懋動物醫院，我們用專業守護健康，用心陪伴生命旅程，成為您與毛孩最值得信賴的醫療夥伴。
           </p>
         </div>
-
 
         {/* 🔹 我們的優勢 */}
         <div className="bg-white shadow-xl rounded-xl p-8 mt-12">
@@ -61,8 +102,8 @@ export default function Home() {
       <section id="director" className="max-w-6xl mx-auto py-12 px-6 flex flex-col md:flex-row items-center gap-8">
         <div className="w-full md:w-2/5">
           <Image
-            src="/director.png"
-            alt="院長 吳定峰"
+            src="/director.jpg"
+            alt="院長"
             width={400}
             height={400}
             className="rounded-xl border-4 border-yellow-500 shadow-xl"
@@ -73,17 +114,12 @@ export default function Home() {
           <h2 className="text-4xl font-bold text-[#5A4032] flex items-center gap-2">
             <FaPaw className="text-yellow-500" /> 院長資訊
           </h2>
-          <p>
-            吳定峰醫師為文志動物醫院的創辦人與現任院長，自創立以來即秉持「醫療應是理解與陪伴的延伸」之理念，致力於提供同理、細膩且專業的動物醫療服務。他畢業於國立中興大學獸醫系，具備紮實的學術背景與多年臨床經驗。
-          </p>
-          <p className="mt-3">
-            吳醫師專精於皮膚疾病診治，對於台灣潮濕氣候對犬貓皮膚所造成的影響有深入研究，常見如搔癢、掉毛、濕疹、黴菌感染等問題，皆能提供全面評估與治療。他主張從生活習慣、環境改善與免疫調理等多面向切入，為毛孩找出最適合的護膚方案。
-          </p>
-          <p className="mt-3">
-            除了皮膚科之外，吳醫師亦擅長老年寵物照護、慢性病管理、腫瘤追蹤與中西整合療法，並長期參與台灣動物醫院聯盟與地方飼主衛教推廣活動，推動毛孩健康觀念普及化。
-          </p>
-          <p className="mt-3">
-            吳定峰醫師深信，每一次醫療不只是診斷與治療，而是一段與毛孩及家人攜手走過的信任旅程。他的溫和風格與細膩溝通，深受飼主肯定與信賴，是雲林地區備受推崇的獸醫師之一。
+          <p className="text-lg text-gray-700 leading-relaxed">
+            院長祝偉鈞醫師畢業於國立嘉義大學獸醫學院，擁有多年小動物臨床經驗，從基礎內外科到進階專科診療，皆有深厚實力。職涯歷練橫跨北中知名院所，曾任台北市和欣動物醫院、劍橋動物醫院、台中市東南動物醫院主治獸醫，亦擔任馬汀體系威爾斯分院院長，具備豐富的實務與醫療團隊管理經驗。
+            <br /><br />
+            祝院長專長涵蓋犬貓內外科診療、心臟內科、腫瘤科、牙科治療、預防醫學健檢，以及母浪貓側腹微創絕育手術等，尤注重醫療的精準性與人道關懷。他始終堅信：「醫療不是單向的指導，而是與飼主攜手做出的每一個選擇。」因此在診療過程中，總是以同理與耐心聆聽每一位飼主的聲音。
+            <br /><br />
+            院長創立鈞懋動物醫院，正是為了實踐他對理想醫療環境的願景——一個兼具專業、信任與溫度的診療空間，讓每位毛孩在就醫的同時，也能感受到被溫柔對待的尊重與安心。
           </p>
         </div>
       </section>
@@ -93,41 +129,55 @@ export default function Home() {
         <h2 className="text-4xl font-bold flex items-center justify-center gap-2">
           <FaPaw className="text-yellow-500" /> 主治項目
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-          {/* 🔹 內科 - 可點擊導向 `/internal` */}
-          <div
-            onClick={() => router.push("/internal")} 
-            className="bg-[#E6D6CC] shadow-md rounded-xl p-6 text-lg flex items-center gap-2 cursor-pointer hover:bg-[#d5c3b8] transition"
-          >
-            <FaPaw className="text-yellow-500 text-2xl" /> 內科
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 text-left">
+          {servicesDetailed.map((service, index) => (
+            <div
+              key={index}
+              className="flex flex-col justify-between bg-[#E6D6CC] text-gray-800 rounded-xl shadow-md p-6 transition-all duration-300"
+            >
+              <div
+                className="flex justify-between items-center cursor-pointer"
+                onClick={() => toggle(index)}
+              >
+                <h3 className="text-xl font-bold flex items-center gap-2">
+                  <FaPaw className="text-yellow-500" /> {service.label}
+                </h3>
+                {openIndex === index ? (
+                  <FaChevronUp className="text-[#5A4032]" />
+                ) : (
+                  <FaChevronDown className="text-[#5A4032]" />
+                )}
+              </div>
 
-          {/* 🔹 外科 - 可點擊導向 `/surgery` */}
-          <div
-            onClick={() => router.push("/surgery")} 
-            className="bg-[#E6D6CC] shadow-md rounded-xl p-6 text-lg flex items-center gap-2 cursor-pointer hover:bg-[#d5c3b8] transition"
-          >
-            <FaPaw className="text-yellow-500 text-2xl" /> 外科
-          </div>
-          
-          {/* 🔹 健康檢查與疫苗接種 - 可點擊導向 `/vaccination` */}
-          <div
-            onClick={() => router.push("/vaccination")} 
-            className="bg-[#E6D6CC] shadow-md rounded-xl p-6 text-lg flex items-center gap-2 cursor-pointer hover:bg-[#d5c3b8] transition"
-          >
-            <FaPaw className="text-yellow-500 text-2xl" /> 健康檢查與疫苗接種
-          </div>
+              <div
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  openIndex === index ? "max-h-96 mt-4" : "max-h-0"
+                }`}
+              >
+                <ul className="list-disc list-inside space-y-1 text-base text-gray-700">
+                  {service.treatments.map((treatment, i) => (
+                    <li key={i}>{treatment}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
 
           {/* 🔹 諾亞寵物高壓氧 - 可點擊導向 `/oxygen` */}
           <div
-            onClick={() => router.push("/oxygen")} 
-            className="bg-[#E6D6CC] shadow-md rounded-xl p-6 text-lg flex items-center gap-2 cursor-pointer hover:bg-[#d5c3b8] transition"
+            onClick={() => router.push("/oxygen")}
+            className="flex items-center gap-2 bg-[#E6D6CC] text-gray-800 rounded-xl shadow-md p-6 cursor-pointer hover:bg-[#d5c3b8] transition"
           >
-            <FaPaw className="text-yellow-500 text-2xl" /> 諾亞寵物高壓氧
+            <FaPaw className="text-yellow-500 text-2xl" />
+            <div>
+              <h3 className="text-xl font-bold text-[#5A4032]">諾亞寵物高壓氧</h3>
+              <p className="text-base mt-1 text-gray-700">
+                點擊了解高壓氧療法如何提升毛孩康復與健康。
+              </p>
+            </div>
           </div>
         </div>
       </section>
-
 
       {/* 🔹 聯絡方式 */}
       <section id="contact" className="max-w-6xl mx-auto py-16 px-6 text-center bg-white shadow-xl rounded-xl">
@@ -141,23 +191,23 @@ export default function Home() {
           <div className="text-lg flex flex-col items-center gap-2">
             <p className="flex items-center gap-2">
               <FaMapMarkerAlt className="text-blue-500" />
-              地址：640雲林縣斗六市文化路344號
+              地址：406台中市北屯區軍福十六路283號
             </p>
             <p className="flex items-center gap-2">
               <FaPhone className="text-green-500" />
-              電話：05-5322735
+              電話：04-24351283
             </p>
-            {/* <p className="flex items-center gap-1 whitespace-nowrap">
+            <p className="flex items-center gap-1 whitespace-nowrap">
               <span>LINE線上諮詢：</span>
               <a
-                href="https://line.me/R/ti/p/@315jaayn"
+                href="https://line.me/R/ti/p/@dyi0676c"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-700 underline hover:text-blue-900 transition"
               >
-                @315jaayn
+                @dyi0676c
               </a>
-            </p> */}
+            </p>
           </div>
 
           {/* 門診時間 */}
@@ -165,12 +215,12 @@ export default function Home() {
             <div className="flex-1 text-lg">
               <h3 className="text-2xl font-bold text-[#5A4032] mb-2">門診時間</h3>
               <ul className="leading-relaxed">
-                <li>星期一：09:00–11:30, 14:00–17:30, 19:00–20:00</li>
-                <li>星期二：09:00–11:30, 14:00–17:30, 19:00–20:00</li>
-                <li>星期三：09:00–11:30, 14:00–17:30</li>
-                <li>星期四：09:00–11:30, 14:00–17:30, 19:00–20:00</li>
-                <li>星期五：09:00–11:30, 14:00–17:30, 19:00–20:00</li>
-                <li>星期六：09:00–11:30</li>
+                <li>星期一：10:00–12:30, 14:30–17:30, 18:30–21:00</li>
+                <li>星期二：10:00–12:30, 14:30–17:30, 18:30–21:00</li>
+                <li>星期三：10:00–12:30, 14:30–17:30, 18:30–21:00</li>
+                <li>星期四：10:00–12:30, 14:30–17:30, 18:30–21:00</li>
+                <li>星期五：10:00–12:30, 14:30–17:30, 18:30–21:00</li>
+                <li>星期六：10:00–17:30</li>
                 <li>星期日：休息</li>
               </ul>
             </div>
@@ -183,7 +233,7 @@ export default function Home() {
           <iframe
             title="Google Maps - 文志動物醫院"
             className="w-full max-w-[1100px] h-[450px] rounded-lg shadow-lg border-0"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.9988501870257!2d120.5536541!3d23.711735099999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ec84857585965%3A0x6a01e80d4f02a25a!2z5paH5b-X5YuV54mp6Yar6Zmi!5e0!3m2!1szh-TW!2stw!4v1747574308680!5m2!1szh-TW!2stw"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.9064251492778!2d120.72297829999998!3d24.175014299999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3469181806f6df59%3A0xfac5fc0010e4f899!2z6Yie5oeL5YuV54mp6Yar6ZmiICjniqzospPlsIjnp5HilILkuIDoiKzlhaflpJbnp5HilILlv4Poh5_ilILnmq7ohprilILohbjog4PilILniZnnp5HilILmgKXoqLrilILlgaXmqqLilILlronlr6fnhaforbfilILmsKfmsKPnl4XmiL_ilILlsIjmpa3msKPpq5TpurvphonilILpq5jlo5PmsKfilILlr7Xniankv53pmqrilILlpKflnZHli5XnianphqvpmaLmjqjolqYp!5e0!3m2!1szh-TW!2stw!4v1750060847910!5m2!1szh-TW!2stw"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
