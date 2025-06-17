@@ -3,21 +3,14 @@
 import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import {
   FaPhone,
   FaMapMarkerAlt,
-  FaPaw,
-  FaChevronDown,
-  FaChevronUp
+  FaPaw
 } from "react-icons/fa";
 
 export default function Home() {
   const router = useRouter(); // ✅ 用於導航到獨立頁面
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const toggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
   
   return (
     <main className="bg-[#E6D6CC] text-gray-900">
