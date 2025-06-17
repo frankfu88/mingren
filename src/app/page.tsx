@@ -12,41 +12,6 @@ import {
   FaChevronUp
 } from "react-icons/fa";
 
-const servicesDetailed = [
-  {
-    label: "內科診療",
-    treatments: [
-      "一般內科診療（腸胃、皮膚、泌尿、呼吸道等常見疾病）",
-      "心臟內科診療（配合高階超音波與血壓監控）",
-      "腫瘤內科門診（腫瘤初步評估與追蹤）",
-      "老年動物慢性病照護（腎臟、心臟、內分泌相關）",
-      "雷射治療（B-CURE動物專用雷射，適用於疼痛與術後恢復）",
-      "呼吸道霧化治療（SUMO超音波霧化器）"
-    ]
-  },
-  {
-    label: "外科手術",
-    treatments: [
-      "一般外科手術（如腫瘤切除、膿瘍清創、異物取出）",
-      "母浪貓側腹微創絕育手術",
-      "全身麻醉手術（配備氣體麻醉機與動物專用生理監控）",
-      "牙科手術（拔牙、口腔清創）",
-      "腫瘤切除手術（搭配術前影像與檢驗）",
-      "術後照護與加護病房（ICU氧氣保溫系統）"
-    ]
-  },
-  {
-    label: "健康檢查與疫苗接種",
-    treatments: [
-      "全年齡健康檢查（建議每年定期檢查）",
-      "完整血液、尿液與內分泌檢驗（IDEXX系統）",
-      "心肺影像評估（X光、超音波、Vcheck免疫分析）",
-      "疫苗接種（幼犬幼貓、成犬成貓定期預防針）",
-      "術前健康風險評估（麻醉前生理檢查）"
-    ]
-  }
-];
-
 export default function Home() {
   const router = useRouter(); // ✅ 用於導航到獨立頁面
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -63,15 +28,15 @@ export default function Home() {
         </h2>
         <div className="bg-white shadow-xl rounded-xl p-8 mt-6">
           <p className="text-lg text-gray-700 leading-relaxed">
-            鈞懋動物醫院由祝偉鈞院長創立，院長畢業於國立嘉義大學獸醫學院，擁有豐富的小動物臨床經驗，曾任台北市和欣動物醫院、劍橋動物醫院、台中東南動物醫院內外科主治醫師，以及馬汀體系威爾斯分院院長，長年專注於犬貓內外科、心臟內科、牙科、腫瘤科、預防醫學與微創手術等多項領域。
+            名仁動物醫院位於屏東市中心，由一群熱愛動物、經驗豐富的獸醫師團隊所創立，致力於提供細緻、專業且具溫度的寵物醫療服務。院內醫師長期投入犬貓臨床照護，擅長內外科、心臟超音波、急重症處理及預防醫學等多元領域。
             <br /><br />
-            鈞懋動物醫院位於台中，致力於打造一個結合專業與溫度的獸醫空間。我們相信，每一隻毛孩都是家庭的重要成員，值得被理解、尊重與用心對待。
+            我們相信，醫療不該只是治療，更是一種理解與陪伴。名仁以「仁心仁術」為核心理念，關心毛孩健康，也重視與飼主的溝通與信任，力求每一次診療都能讓飼主安心、讓毛孩放鬆。
             <br /><br />
-            從院內環境到就診流程，我們重視每個細節，只為了讓毛孩與飼主都能安心、舒適地看診。我們的團隊擁有臨床經驗與醫療熱忱，提供包括健康檢查、疫苗施打、皮膚病診療、X光與超音波影像檢查、外科手術、慢性病照護等全面服務。
+            醫院配備先進設備，包括數位X光、心臟與腹部超音波、全自動血液檢驗儀、麻醉監控系統，以及犬貓分離住院區，確保診療品質與動物安全。服務項目涵蓋一般診療、健康檢查、疫苗注射、結紮手術、皮膚病治療、慢性病追蹤與急診處理等。
             <br /><br />
-            我們深知，真正的醫療不僅來自專業技術，更來自於與飼主的信任連結與充分溝通。鈞懋重視每一段互動，耐心傾聽、清楚說明，讓每一位飼主都能在診療過程中感受到被理解與被支持。
+            名仁動物醫院採預約優先制度，減少等待時間，提升就診效率。我們也提供夜間診療，陪伴每一位毛孩度過健康的每一天。
             <br /><br />
-            在鈞懋動物醫院，我們用專業守護健康，用心陪伴生命旅程，成為您與毛孩最值得信賴的醫療夥伴。
+            在名仁，我們不只是醫療團隊，更是您與毛孩生命旅程中的守護者與夥伴，期待與您一同見證毛孩的成長與幸福。
           </p>
         </div>
 
@@ -124,42 +89,64 @@ export default function Home() {
         </div>
       </section>
 
+      
+
       {/* 🔹 主治項目 */}
       <section id="services" className="max-w-6xl mx-auto py-16 px-6 text-center bg-[#9D8575] text-white shadow-xl rounded-xl">
         <h2 className="text-4xl font-bold flex items-center justify-center gap-2">
           <FaPaw className="text-yellow-500" /> 主治項目
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 text-left">
-          {servicesDetailed.map((service, index) => (
+          {[
+            {
+              label: "急診服務",
+              treatments: ["我們提供緊急急救與急診服務，隨時隨地照顧您寵物的健康需求。"],
+            },
+            {
+              label: "一般健康檢查",
+              treatments: ["定期的健康檢查是保持寵物健康的關鍵，為您的寵物進行全面的檢查與健康建議。"],
+            },
+            {
+              label: "手術與內外科服務",
+              treatments: ["我們配備專業的手術團隊，為寵物提供各種外科手術和內科治療。"],
+            },
+            {
+              label: "牙科護理",
+              treatments: ["牙齒健康與整體健康息息相關，服務包括牙齒檢查、清潔和治療。"],
+            },
+            {
+              label: "住院治療",
+              treatments: ["需要更長期觀察和治療的病例，提供舒適的住院環境，確保寵物獲得良好的照顧。"],
+            },
+            {
+              label: "結紮手術",
+              treatments: ["結紮手術有助於控制寵物的繁殖，同時帶來健康和行為上的好處。"],
+            },
+            {
+              label: "預防注射",
+              treatments: ["定期的預防注射是防範常見疾病的有效方式。"],
+            },
+            {
+              label: "驅蟲治療",
+              treatments: ["我們提供各種驅蟲產品和治療方案，確保寵物免受寄生蟲的困擾。"],
+            },
+            {
+              label: "晶片植入",
+              treatments: ["為您的寵物提供獨特的身份識別碼，以增加尋找失踪寵物的成功率。"],
+            },
+          ].map((service, index) => (
             <div
               key={index}
               className="flex flex-col justify-between bg-[#E6D6CC] text-gray-800 rounded-xl shadow-md p-6 transition-all duration-300"
             >
-              <div
-                className="flex justify-between items-center cursor-pointer"
-                onClick={() => toggle(index)}
-              >
-                <h3 className="text-xl font-bold flex items-center gap-2">
-                  <FaPaw className="text-yellow-500" /> {service.label}
-                </h3>
-                {openIndex === index ? (
-                  <FaChevronUp className="text-[#5A4032]" />
-                ) : (
-                  <FaChevronDown className="text-[#5A4032]" />
-                )}
-              </div>
-
-              <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index ? "max-h-96 mt-4" : "max-h-0"
-                }`}
-              >
-                <ul className="list-disc list-inside space-y-1 text-base text-gray-700">
-                  {service.treatments.map((treatment, i) => (
-                    <li key={i}>{treatment}</li>
-                  ))}
-                </ul>
-              </div>
+              <h3 className="text-xl font-bold flex items-center gap-2">
+                <FaPaw className="text-yellow-500" /> {service.label}
+              </h3>
+              <ul className="list-disc list-inside space-y-1 text-base text-gray-700 mt-4">
+                {service.treatments.map((treatment, i) => (
+                  <li key={i}>{treatment}</li>
+                ))}
+              </ul>
             </div>
           ))}
 
@@ -191,13 +178,13 @@ export default function Home() {
           <div className="text-lg flex flex-col items-center gap-2">
             <p className="flex items-center gap-2">
               <FaMapMarkerAlt className="text-blue-500" />
-              地址：406台中市北屯區軍福十六路283號
+              地址：900屏東縣屏東市仁愛路7號
             </p>
             <p className="flex items-center gap-2">
               <FaPhone className="text-green-500" />
-              電話：04-24351283
+              電話：08-7512022
             </p>
-            <p className="flex items-center gap-1 whitespace-nowrap">
+            {/* <p className="flex items-center gap-1 whitespace-nowrap">
               <span>LINE線上諮詢：</span>
               <a
                 href="https://line.me/R/ti/p/@dyi0676c"
@@ -207,22 +194,19 @@ export default function Home() {
               >
                 @dyi0676c
               </a>
-            </p>
+            </p> */}
           </div>
 
           {/* 門診時間 */}
           <div className="mt-6 flex flex-col md:flex-row justify-center gap-12">
-            <div className="flex-1 text-lg">
-              <h3 className="text-2xl font-bold text-[#5A4032] mb-2">門診時間</h3>
-              <ul className="leading-relaxed">
-                <li>星期一：10:00–12:30, 14:30–17:30, 18:30–21:00</li>
-                <li>星期二：10:00–12:30, 14:30–17:30, 18:30–21:00</li>
-                <li>星期三：10:00–12:30, 14:30–17:30, 18:30–21:00</li>
-                <li>星期四：10:00–12:30, 14:30–17:30, 18:30–21:00</li>
-                <li>星期五：10:00–12:30, 14:30–17:30, 18:30–21:00</li>
-                <li>星期六：10:00–17:30</li>
-                <li>星期日：休息</li>
-              </ul>
+            <div className="flex-1 text-lg text-gray-800">
+              <h3 className="text-2xl font-bold text-[#5A4032] mb-4">門診時間</h3>
+              <p className="leading-relaxed mb-1">早上 9 點 至 中午 12 點</p>
+              <p className="leading-relaxed mb-1">下午 2 點 至 晚上 6 點</p>
+              <p className="leading-relaxed mb-1">晚上 7 點 至 晚上 9 點，<span className="font-semibold">急診：</span>晚上 9 點 ~ 11 點</p>
+              <p className="leading-relaxed mt-4 text-red-700 font-bold">
+                禮拜三下午 4 點後休診、晚上休診
+              </p>
             </div>
           </div>
 
@@ -231,9 +215,9 @@ export default function Home() {
         {/* 🔹 Google 地圖嵌入 */}
         <div className="w-full flex justify-center mt-8">
           <iframe
-            title="Google Maps - 文志動物醫院"
+            title="Google Maps - 名仁動物醫院"
             className="w-full max-w-[1100px] h-[450px] rounded-lg shadow-lg border-0"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.9064251492778!2d120.72297829999998!3d24.175014299999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3469181806f6df59%3A0xfac5fc0010e4f899!2z6Yie5oeL5YuV54mp6Yar6ZmiICjniqzospPlsIjnp5HilILkuIDoiKzlhaflpJbnp5HilILlv4Poh5_ilILnmq7ohprilILohbjog4PilILniZnnp5HilILmgKXoqLrilILlgaXmqqLilILlronlr6fnhaforbfilILmsKfmsKPnl4XmiL_ilILlsIjmpa3msKPpq5TpurvphonilILpq5jlo5PmsKfilILlr7Xniankv53pmqrilILlpKflnZHli5XnianphqvpmaLmjqjolqYp!5e0!3m2!1szh-TW!2stw!4v1750060847910!5m2!1szh-TW!2stw"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.615667599654!2d120.49100179999998!3d22.668113899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e1744823847a9%3A0xd80774b4e42c060!2z5ZCN5LuB5YuV54mp6Yar6Zmi772c5aSc6ZaT5a-154mp5oCl6Ki6LOiyk-eLl-e1kOe0rizpqYXon7Is5qSN5YWl5pm254mH!5e0!3m2!1szh-TW!2stw!4v1750127951127!5m2!1szh-TW!2stw"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
