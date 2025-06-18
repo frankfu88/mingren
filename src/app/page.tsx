@@ -57,7 +57,7 @@ export default function Home() {
       </section>
 
       {/* 🔹 院長資訊 */}
-      <section id="director" className="max-w-6xl mx-auto py-12 px-6 flex flex-col md:flex-row items-center gap-8">
+      {/* <section id="director" className="max-w-6xl mx-auto py-12 px-6 flex flex-col md:flex-row items-center gap-8">
         <div className="w-full md:w-2/5">
           <Image
             src="/director.jpg"
@@ -68,7 +68,7 @@ export default function Home() {
           />
         </div>
 
-        {/* <div className="w-full md:w-1/2 bg-white shadow-xl rounded-xl p-8">
+        <div className="w-full md:w-1/2 bg-white shadow-xl rounded-xl p-8">
           <h2 className="text-4xl font-bold text-[#5A4032] flex items-center gap-2">
             <FaPaw className="text-yellow-500" /> 院長資訊
           </h2>
@@ -79,8 +79,8 @@ export default function Home() {
             <br /><br />
             院長創立鈞懋動物醫院，正是為了實踐他對理想醫療環境的願景——一個兼具專業、信任與溫度的診療空間，讓每位毛孩在就醫的同時，也能感受到被溫柔對待的尊重與安心。
           </p>
-        </div> */}
-      </section>
+        </div>
+      </section> */}
 
       {/* 🔹 主治項目 */}
       <section id="services" className="max-w-6xl mx-auto py-16 px-6 text-center bg-[#9D8575] text-white shadow-xl rounded-xl">

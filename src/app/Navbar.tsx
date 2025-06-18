@@ -37,7 +37,7 @@ export default function Navbar() {
 
         <nav className="hidden md:flex space-x-8 text-lg font-medium">
           <button onClick={() => handleNavClick("about")} className="hover:text-gray-600">關於我們</button>
-          <button onClick={() => handleNavClick("director")} className="hover:text-gray-600">院長資訊</button>
+          {/* <button onClick={() => handleNavClick("director")} className="hover:text-gray-600">院長資訊</button> */}
           <button onClick={() => handleNavClick("services")} className="hover:text-gray-600">主治項目</button>
           {/* ✅ 當點擊價格一覽時，自動收起 Navbar */}
           {/* <Link href="/pricing" className="hover:text-gray-600" onClick={() => setIsOpen(false)}>價格一覽</Link> */}
